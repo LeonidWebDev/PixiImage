@@ -6,10 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+
     <title>PixiImg</title>
 </head>
 
 <body>
+    <script src="pixi.min.js"></script>
+    <script>
+        let app = new Pixi.Application({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
+        document.appendChild(app.view);
+
+        let img = new Pixi.Sprite.from('picahu.jpg');
+        img.width = window.innerWidth;
+        img.height = window.innerHeight;
+        app.stage.addChild(img);
+
+        depthMap = new Pixi.Sprite.from('picachu-map.jpg');
+        app.stage.addChild(depthMap);
+
+        displacementFilter = new Pixi.filters.DisplacementFilter(depthMap);
+        app.stage.filters = [displacementFilter];
+
+
+        window.onmousemove = function(e) {
+            displacementFilter.scale.x = (window.innerWidth / 2 - e.clientX) / 20;
+            displacementFilter.scale.y = (window.innerHeight / 2 - e.clientY) / 20;
+
+        }
+    </script>
     <div>pixi</div>
 </body>
 
