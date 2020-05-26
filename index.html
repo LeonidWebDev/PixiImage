@@ -13,21 +13,21 @@
 <body>
     <script src="pixi.min.js"></script>
     <script>
-        let app = new Pixi.Application({
+        let app = new PIXI.Application({
             width: window.innerWidth,
             height: window.innerHeight
         });
-        document.appendChild(app.view);
+        document.body.appendChild(app.view);
 
-        let img = new Pixi.Sprite.from('picahu.jpg');
+        let img = new PIXI.Sprite.from('quinjy.jpg');
         img.width = window.innerWidth;
         img.height = window.innerHeight;
         app.stage.addChild(img);
 
-        depthMap = new Pixi.Sprite.from('picachu-map.jpg');
+        depthMap = new PIXI.Sprite.from('quinjy-map.jpg');
         app.stage.addChild(depthMap);
 
-        displacementFilter = new Pixi.filters.DisplacementFilter(depthMap);
+        displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
         app.stage.filters = [displacementFilter];
 
 
@@ -37,7 +37,7 @@
 
         }
     </script>
-    <div>pixi</div>
+    <!-- <img src="quinjy.jpg" alt="quinjy"> -->
 </body>
 
 </html>
