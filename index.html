@@ -19,12 +19,14 @@
         });
         document.body.appendChild(app.view);
 
-        let img = new PIXI.Sprite.from('quinjy.jpg');
+        let img = new PIXI.Sprite.from('hmm.jpg');
         img.width = window.innerWidth;
         img.height = window.innerHeight;
         app.stage.addChild(img);
 
-        depthMap = new PIXI.Sprite.from('quinjy-map.jpg');
+        depthMap = new PIXI.Sprite.from('hmm-map.jpg');
+        depthMap.width = window.innerWidth;
+        depthMap.height = window.innerHeight;
         app.stage.addChild(depthMap);
 
         displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
@@ -32,8 +34,8 @@
 
 
         window.onmousemove = function(e) {
-            displacementFilter.scale.x = (window.innerWidth / 2 - e.clientX) / 20;
-            displacementFilter.scale.y = (window.innerHeight / 2 - e.clientY) / 20;
+            displacementFilter.scale.x = (window.innerWidth / 2 - e.clientX) / 60;
+            displacementFilter.scale.y = (window.innerHeight / 2 - e.clientY) / 60;
 
         }
     </script>
